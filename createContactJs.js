@@ -14,15 +14,16 @@ window.onload = () => {
     const emailVal = email.value.trim(); 
     const telephoneVal = telephone.value.trim(); 
     const companyVal = company.value.trim();
-
-
+    const assignedToVal = assignedTo.options[assignedTo.selectedIndex].text;
+    const typeVal = type.options[type.selectedIndex].text;
+    let validated;
     submitBtn.addEventListener("click", (e)=>{
-        let validated = true;
+        validated = true;
         e.preventDefault();
         validateInputs();
 
         let xhr = new XMLHttpRequest();
-        let url = "cc-action-page.php?title="+titleVal+"&firstname="+firstnameVal+"&lastname="+lastnameVal+"&email="+emailVal+"&telephone="+telephoneVal+"&company="+companyVal+"&type="+type+"&assignedTo="+assignedTo;
+        let url = "cc-action-page.php?title="+titleVal+"&firstname="+firstnameVal+"&lastname="+lastnameVal+"&email="+emailVal+"&telephone="+telephoneVal+"&company="+companyVal+"&type="+typeVal+"&assignedTo="+assignedToVal;
         xhr.onreadystatechange = () => {
             if (xhr.readyState = XMLHttpRequest.DONE) {
                 if (xhr.status == 200) {

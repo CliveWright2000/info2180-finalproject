@@ -38,6 +38,6 @@
 
     $insert->execute();
 
-    echo "Contact successfully created. <a href='users.php'>View Users</a>"
+    echo "Contact successfully created! <a href='users.php'>View Users</a>"
 ?>
 

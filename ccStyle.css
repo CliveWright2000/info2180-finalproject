@@ -7,6 +7,10 @@ form {
     height: 75vh;
 }
 
+.newContact h1 {
+    font-size: 28px;
+}
+
 .form-group {
     margin-bottom: 36px;
 }

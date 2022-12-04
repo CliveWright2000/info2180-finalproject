@@ -28,7 +28,7 @@
             <hr>    
             <div class="logout" id="logout">
                 <img src="logout.png">
-                <a href="logout.php">Logout</a>
+                <a href="index.php">Logout</a>
             </div>
         </li>
     </ul>
