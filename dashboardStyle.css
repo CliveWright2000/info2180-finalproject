@@ -26,11 +26,15 @@ header h1 {
     display: flex;
     flex-direction: row;
     width: 15%;
-    min-width: 200px;
+    min-width: 9vw;
     float: left;
     padding-top: 16px;
     background-color:white;
     height: 100vh;
+}
+
+.sidePanel ul{
+    list-style: none;
 }
 
 .sidePanel .home, .sidePanel .newContact, .sidePanel .users, .sidePanel .logout, .dbContent .filter{
@@ -105,9 +109,10 @@ header h1 {
     padding: 12px;
 }
 
-.dbContent .navBar button:hover {
+.dbContent .navBar .active{
     color: rgb(58, 58, 235);
     border-bottom-style: solid;
+    border-color: rgb(58, 58, 235);
 }
 
 .dbContent .navBar #allBtn {
@@ -128,4 +133,84 @@ header img {
 #addContact img {
     width: 14px;
     margin-left: 0px;
+}
+
+#result {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+table {
+    border: 1px solid rgb(223, 223, 223);
+    border-spacing: 0;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+}
+
+th {
+    background-color: rgb(241, 241, 241);
+    padding: 8px 12px;
+    width: 360px;
+    border: none;
+    text-align: left;
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    justify-content: center;
+}
+
+#justifyView {
+    text-align: center;
+}
+
+#justifySL div{
+    align-self: right;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(58, 58, 235);
+}
+
+#tableName {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+#tableContent {
+    color:  grey;
+}
+
+#salesLead {
+    background-color: yellow;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 14px;
+    width: fit-content;
+    padding: 5px 10px;
+    align-self: right;
+    justify-content: center;
+    text-align: center;
+}
+
+#support {
+    background-color: rgb(58, 58, 235);
+    color: white;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 5px 10px;
+    align-self: right;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
 }

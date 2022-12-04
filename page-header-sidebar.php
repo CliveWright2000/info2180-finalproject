@@ -4,24 +4,32 @@
 </header>
 <div class="sidePanel">
     <ul>
-        <div class="home">
+        <li>
+            <div class="home" id="home">
             <img src="home.png">
             <a href="dashboard.php" id="homeLink">Home</a>
-        </div>
+            </div>
+        </li>
 
-        <div class="newContact">
+        <li>
+            <div class="newContact" id="newContact">
             <img src="contact.png">
-            <a href="newContact.php" id="contactsLink">New Contact</a>
-        </div>
+            <a href="createContact.php" id="contactsLink">New Contact</a>
+            </div>
+        </li>
 
-        <div class="users">
+        <li>
+            <div class="users" id="users">
             <img src="user.png">
             <a href="viewUsers.php" id="usersLink">Users</a>
-        </div>
-        <hr>
-        <div class="logout">
-            <img src="logout.png">
-            <a href="logout.php">Logout</a>
-        </div>
+            </div>
+        </li>
+        <li>
+            <hr>    
+            <div class="logout" id="logout">
+                <img src="logout.png">
+                <a href="logout.php">Logout</a>
+            </div>
+        </li>
     </ul>
 </div>
