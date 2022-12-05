@@ -1,3 +1,10 @@
+.containerinfo{
+    border-left: 2px solid black;
+    background-color: white;
+    
+}
+
+
 .Contactcontent{
     display: flex;
     flex-direction: column;
@@ -21,7 +28,7 @@
     width: 40px;
     border-radius: 5px;
     float: left;
-    margin: 12px 12px;
+    margin: 10px 10px;
 }
 
 .Contactdata{
@@ -200,7 +207,7 @@ section.Notes{
 }
 
 .AddCom{
-    background-color:grey;
+    background-color: lightgrey;
     
 }
 
@@ -212,7 +219,7 @@ section.Notes{
 .AddCom button{
     border: 0;
     padding:10px 30px;
-    background:#86b0b6;
+    background:#4c4cca;
     font-size:18px;
     border-radius: 5px;
     color:#fff;

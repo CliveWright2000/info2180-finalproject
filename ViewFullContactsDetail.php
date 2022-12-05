@@ -54,6 +54,7 @@ $_SESSION['thisType'] = $results[0]['type'];
         <body>
         <div class="container">
             <?php include 'page-header-sidebar.php'; ?>
+            <div class ="containerinfo">
             <div class="Contactcontent">
             <div class="Header">
                 <div class ="ContactInfo" >
@@ -136,7 +137,7 @@ $_SESSION['thisType'] = $results[0]['type'];
                                 <input type="note" name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;" placeholder="Enter details here"></input>
                             </div>
                         <br>
-                            <button id="Addhere" type="submit" >Add Here</button>
+                            <button id="Addhere" type="submit" >Add Note</button>
                         </form>
                     </div>
                 </div> 
