@@ -18,6 +18,10 @@ $stmt2 = $conn->query("SELECT comment, created_by, created_at FROM Notes WHERE c
 $results2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 $createdBy = $results[0]["created_by"];
 $assignedTo = $results[0]['assigned_to'];
+$creatorContactQ = $conn->query("SELECT firstname, lastname FROM users WHERE id = '$createdBy'");
+$ccqResult = $creatorContactQ->fetchAll(PDO::FETCH_ASSOC);
+$assignedToQ =  $conn->query("SELECT firstname, lastname FROM users WHERE id = '$assignedTo'");
+$atqResult = $assignedToQ->fetchAll(PDO::FETCH_ASSOC);
 if(sizeof($results2)>0) {
     //$created_by = $results2//[0]["created_by"];
     //$ncqComment = $results2//[0]['comment'];
@@ -29,10 +33,8 @@ if(sizeof($results2)>0) {
     //$ncqComment = "";
     //$ncqCreatedAt = NULL;
 }
-$creatorContactQ = $conn->query("SELECT firstname, lastname FROM users WHERE id = '$createdBy'");
-$ccqResult = $creatorContactQ->fetchAll(PDO::FETCH_ASSOC);
-$assignedToQ =  $conn->query("SELECT firstname, lastname FROM users WHERE id = '$assignedTo'");
-$atqResult = $assignedToQ->fetchAll(PDO::FETCH_ASSOC);
+
+
 $noteCreatorQ = $conn->query("SELECT id, firstname, lastname FROM users");
 $ncqResults = $noteCreatorQ->fetchAll(PDO::FETCH_ASSOC);
 
@@ -46,12 +48,12 @@ $_SESSION['thisType'] = $results[0]['type'];
         <meta charset="UTF-8">
         <link rel="stylesheet" href="FullContactsStyle.css">
         <link rel="stylesheet" href="dashboardStyle.css">
-        <script type="text/javascript" src="viewContacts.js"></script>
+       <script type="text/javascript" src="viewContacts.js"></script>
     </head>
         <body>
         <div class="container">
             <?php include 'page-header-sidebar.php'; ?>
-            <div class="content">
+            <div class="Contactcontent">
             <div class="Header">
                 <div class ="ContactInfo" >
                     <img src="avatar.png">
@@ -61,19 +63,21 @@ $_SESSION['thisType'] = $results[0]['type'];
                     <p> Updated on <?=$results[0]['updated_at']?></p>
                     </div>
                 </div>
-                <form>
+                <div class="buttonArea">
+            
                 <div class="assign">
                     <button  id="assignBtn"><img src="blackpalm.png" id="blackpalm"><h5>Assign to Me</h5></button>
                 </div>
                 <div class="SwitchTo">
-                        <button  id="Switch"><img src ="switch.png"><h5><?php if ($results[0]['type']=='Sales Lead'):?>
-                        Switch to Support
+                        <button  id="Switch"><img src ="switch.png"><?php if ($results[0]['type']=='Sales Lead'):?>
+                        <h5>Switch to Support</h5>
                         <?php else: ?>
-                        Switch to Sales Lead
-                        <?php endif; ?></h5>
+                          <h5>Switch to Sales Lead</h5>  
+                        <?php endif; ?>
                         </button>  
                 </div>
-                </form>
+                </div>
+                
             </div>
 
                 <section class="Info">
@@ -112,12 +116,13 @@ $_SESSION['thisType'] = $results[0]['type'];
                         </div>
                     </div>
                     <div class="noteInfo">
-                        <?php if (sizeof($join)>0): ?>
+                    <?php if (sizeof($join)>0): ?>
                         <?php foreach ($join as $r): ?>
-                            <h2><?= $r['firstname']." ".$r['lastname']?></h2>
+                            <h3><?= $r['firstname']." ".$r['lastname']?></h3>
                             <p><?= $r['comment']?></p>
                             <p><?= $r['created_at']?></p>
-                        <?php endforeach; ?>
+                            <br>
+                            <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
                     <div  class = "AddCom">
