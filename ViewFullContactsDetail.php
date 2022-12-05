@@ -22,6 +22,7 @@ $creatorContactQ = $conn->query("SELECT firstname, lastname FROM users WHERE id 
 $ccqResult = $creatorContactQ->fetchAll(PDO::FETCH_ASSOC);
 $assignedToQ =  $conn->query("SELECT firstname, lastname FROM users WHERE id = '$assignedTo'");
 $atqResult = $assignedToQ->fetchAll(PDO::FETCH_ASSOC);
+$join = [];
 if(sizeof($results2)>0) {
     //$created_by = $results2//[0]["created_by"];
     //$ncqComment = $results2//[0]['comment'];
