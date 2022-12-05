@@ -1,11 +1,15 @@
 <?php
     session_start();
     $host = 'localhost';
-    $username = 'admin@project2.com';
-    $password = 'password123';
+    $username = 'root';
+    $password = '';
     $dbname = 'dolphin_crm';
 
-    $conn = new PDO("mysql:host=$host;port=3307;dbname=$dbname;charset=utf8mb4", $username, $password);
+    if ($_SESSION['loggedIn']!=1) {
+        Header('Location: index.php');
+    }
+
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
     $title = filter_input (INPUT_GET, 'title', FILTER_SANITIZE_STRING);
     $firstname = filter_input (INPUT_GET, 'firstname', FILTER_SANITIZE_STRING);
@@ -24,20 +28,27 @@
         $assignedId = $idResult['id'];
     }
 
-    $insert = $conn->prepare('INSERT INTO Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) 
-    VALUES (:title, :firstname, :lastname, :email, :telephone, :company, :type, :assigned_to, :created_by, NOW(), NOW());');
+    $insert = $conn->prepare('INSERT INTO Contacts (title, firstname, lastname, email, telephone, company, `type`, assigned_to, created_by, created_at, updated_at) 
+    VALUES (:title, :firstname, :lastname, :email, :telephone, :company, :jobType, :assigned_to, :created_by, NOW(), NOW());');
     $insert->bindParam(":title",$title);
     $insert->bindParam(":firstname",$firstname);
     $insert->bindParam(":lastname",$lastname);
     $insert->bindParam(":email",$email);
     $insert->bindParam(":telephone",$telephone);
     $insert->bindParam(":company",$company);
-    $insert->bindParam(":type",$type);
+    $insert->bindParam(":jobType",$type);
     $insert->bindParam(":assigned_to",$assignedId);
     $insert->bindParam(":created_by",$createdBy);
 
     $insert->execute();
-
-    echo "Contact successfully created! <a href='users.php'>View Users</a>"
+    $fullname = $firstname." ".$lastname;
+    $checker = $conn->query("SELECT id FROM Contacts WHERE CONCAT(firstname,' ',lastname)='$fullname'");
+    $checkResult = $checker->fetch(PDO::FETCH_ASSOC);
+    //echo "Contact successfully created! <a href='dashboard.php'>View Contacts</a>"
 ?>
 
+<?php if(isset($checkResult)): ?>
+    <?= "Contact successfully created! <a href='dashboard.php'>View Contacts</a>";?>
+<?php else: ?>
+    <?= "Contact could not be created. <a href='createContact.php' id='ccError'>Try agin</a>";?>
+<?php endif; ?>

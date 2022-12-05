@@ -100,3 +100,7 @@ button {
     font-size: 14px;
     color: #09c372;
 }
+
+#ccError {
+    color: #ff3860;
+}

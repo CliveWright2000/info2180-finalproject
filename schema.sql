@@ -84,10 +84,10 @@ INSERT INTO `Contacts` VALUES (2,'Mr','John', 'Brown', 'johnbrown@ue.com','87654
 
 DROP TABLE IF EXISTS `Notes`;
 CREATE TABLE `Notes`(
-    `id` int NOT NULL auto_increment,
-    `contact_id` int NOT NULL,
+    `id` int DEFAULT NULL auto_increment,
+    `contact_id` int DEFAULT NULL,
     `comment` text NOT NULL DEFAULT '',
-    `created_by` int NOT NULL,
+    `created_by` int DEFAULT NULL,
     `created_at` datetime DEFAULT NULL,
     PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;

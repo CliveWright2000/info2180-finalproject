@@ -1,11 +1,15 @@
 <?php
     session_start();
     $host = 'localhost';
-    $username = 'admin@project2.com';
-    $password = 'password123';
+    $username = 'root';
+    $password = '';
     $dbname = 'dolphin_crm';
 
-    $conn = new PDO("mysql:host=$host;port=3307;dbname=$dbname;charset=utf8mb4", $username, $password);
+    if ($_SESSION['loggedIn']!=1) {
+        Header('Location: index.php');
+    }
+
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $stmt = $conn->query("SELECT firstname, lastname FROM users");
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

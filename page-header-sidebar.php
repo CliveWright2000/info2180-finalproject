@@ -21,14 +21,14 @@
         <li>
             <div class="users" id="users">
             <img src="user.png">
-            <a href="viewUsers.php" id="usersLink">Users</a>
+            <a href="users.php" id="usersLink">Users</a>
             </div>
         </li>
         <li>
             <hr>    
             <div class="logout" id="logout">
                 <img src="logout.png">
-                <a href="index.php">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </li>
     </ul>
