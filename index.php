@@ -18,10 +18,10 @@
      <form action="login.php" method="post">
         <h2>LOGIN</h2>
         <label>Email Address</label>
-        <input type="text" name="email" placeholder="Enter Your Email Address"><br>
+        <input type="text" name="email" placeholder="Enter Your Email Address" required><br>
         
         <label>Password</label>
-        <input type="password" name="password" placeholder="Enter Your Password"><br>
+        <input type="password" name="password" placeholder="Enter Your Password" required><br>
 
         <button type="submit" name="submit">Login</button>
       </form>
