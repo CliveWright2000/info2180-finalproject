@@ -22,17 +22,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }else{
             
             $data = $conn->query("SELECT * FROM users WHERE email='$email' AND password='$password'");
+<<<<<<< HEAD
     
             if ($data->num_rows > 0) {
                 $_SESSION["email"] = $email;
                 $_SESSION["loggedIn"] = 1;
+=======
+            $results = mysqli_fetch_assoc($data);
+            if ($data->num_rows > 0) {
+                $_SESSION["username"] = $email;
+                $_SESSION["loggedIn"] = 1;
+                $_SESSION["id"] = $results['id'];
+>>>>>>> dashboard-implementation
                 
                 header("Location: dashboard.php");
                 exit();
     
             } else {
                 
+<<<<<<< HEAD
                 echo "<p> Invalid Email or Password </p>";
+=======
+                echo "<p> Invalid Email or Password. <a href=index.php>Try again!</a></p>";
+>>>>>>> dashboard-implementation
             }
         }	
 

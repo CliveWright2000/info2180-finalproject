@@ -8,6 +8,7 @@
 
 body{
     font-family: sans-serif;
+<<<<<<< HEAD
 
     
     
@@ -30,6 +31,27 @@ body{
     color:white;
     font-size: 20px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+=======
+}
+
+.menu_bar{
+    background-color:rgb(2, 2, 40);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+}
+.img-logo{
+    width: 20px;
+    border-radius: 4px;
+    float: left;
+    margin: 12px 12px 12px 32px;
+}
+.logo{
+    color:white;
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+>>>>>>> dashboard-implementation
 }
 
 h2{
